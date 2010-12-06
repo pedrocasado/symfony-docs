@@ -9,6 +9,6 @@ Aprenda a utilizar o Symfony2 rapidamente seguindo o Guia Rápido:
    :numbered:
 
    the_big_picture
-   a_visao
-   o_controlador
-   a_arquitetura
+   the_view
+   the_controller
+   the_architecture
