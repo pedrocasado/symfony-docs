@@ -1,7 +1,8 @@
-Quick Tour (with Twig)
+
+Guia Rápido (com Twig)
 ======================
 
-Get started fast with the Symfony2 Quick Tour:
+Aprenda a utilizar o Symfony2 rapidamente seguindo o Guia Rápido:
 
 .. toctree::
    :maxdepth: 2
