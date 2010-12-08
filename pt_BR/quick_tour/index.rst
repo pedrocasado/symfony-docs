@@ -1,7 +1,7 @@
-Quick Tour
-==========
+Guia Rápido
+===========
 
-Get started fast with the Symfony2 Quick Tour:
+Aprenda a utilizar o Symfony2 rapidamente seguindo o Guia Rápido:
 
 .. toctree::
    :maxdepth: 2
@@ -12,4 +12,3 @@ Get started fast with the Symfony2 Quick Tour:
    the_view
    the_controller
    the_architecture
-
