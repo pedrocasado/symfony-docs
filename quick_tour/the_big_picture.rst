@@ -1,35 +1,32 @@
-The Big Picture
-===============
+Panorama Geral
+==============
 
-So, you want to try out Symfony2 but only have 10 minutes or so? This first
-part of this tutorial has been written for you. It explains how to get started
-fast with Symfony2 by showing you the structure of a simple ready-made
-project.
+Você quer testar o Symfony2, mas só tem 10 minutos disponível? A primeira parte 
+desse tutorial foi escrita para você. Aqui será explicado como começar com o Symfony2 
+mostrando a estrutura de um simples projeto pronto.
 
-If you have ever used a web framework before, you should feel right at home
-with Symfony2.
+Se você nunca utilizou um framework antes, você vai se sentir em casa com Symfony2.
 
 .. index::
    pair: Sandbox; Download
 
-Downloading and Installing Symfony2
------------------------------------
+Baixando e instalando o Symfony2
+--------------------------------
 
-First, check that you have at least PHP 5.3.2 installed and correctly
-configured to work with a web server like Apache.
+Primeiramente, veja se você possui o PHP 5.3.2 instalado e configurado corretamente 
+junto com um servidor web como o Apache.
 
-Ready? Let's start by downloading Symfony2. To get started even faster, we are
-going to use the "Symfony2 sandbox". It is a Symfony2 project where all the
-required libraries and some simple controllers are already included; the basic
-configuration is also already done. The great advantage of the sandbox over
-other types of installation is that you can start experimenting with Symfony2
-immediately.
+Pronto? Vamos começar fazendo o download do Symfony2. Para comecarmos mais rápido ainda, 
+vamos utilizar o "Symfony2 sandbox". Esse é um projeto onde todas as bibliotecas e 
+controladores já vem incluídos; a instalação básica já está feita. A grande vantagem 
+de utilizar o sandbox ao invés de outras instalações é que você pode começar a 
+experimentar o Symfony2 imediatamente.
 
-Download the `sandbox`_, and unpack it in your root web directory. You
-should now have a ``sandbox/`` directory::
+Faça o download do`sandbox`_, e descompacte no seu diretório web. Você vai ter agora 
+o diretório ``sandbox/``:  
 
-    www/ <- your web root directory
-        sandbox/ <- the unpacked archive
+    www/ <- seu diretório web
+        sandbox/ <- arquivos descompactados
             app/
                 cache/
                 config/
@@ -44,34 +41,34 @@ should now have a ``sandbox/`` directory::
             web/
 
 .. index::
-   single: Installation; Check
+   single: Instalação; Checar
 
-Checking the Configuration
---------------------------
+Validando a configuração
+------------------------
 
-To avoid some headaches further down the line, check that your configuration
-can run a Symfony2 project smoothly by requesting the following URL:
+Para evitar problemas futuramente, vamos validar se nossa configuração 
+esta pronta para rodar um projeto Symfony2 corretamente acessando o endereço:
 
     http://localhost/sandbox/web/check.php
 
-Read the script output carefully and fix any problem that it finds.
+Leia a página com cuidado e corrija os problemas caso necessário.
 
-Now, request your first "real" Symfony2 webpage:
+Agora acesse a primeira página com Symfony2:  
 
     http://localhost/sandbox/web/app_dev.php/
 
-Symfony2 should congratulate you for your hard work so far!
+Você deve visualizar uma página de gratificação do Symfony2.
 
-Creating your first Application
--------------------------------
+Criando a primeira aplicação
+----------------------------
 
-The sandbox comes with a simple Hello World ":term:`application`" and that's
-the application we will use to learn more about Symfony2. Go to the following
-URL to be greeted by Symfony2 (replace Fabien with your first name):
+O sandbox já vem com uma simples ":term:`aplicação`" Hello World e é essa aplicação 
+que vamos utilizar para aprender mais sobre o Symfony2. Acesse a seguinte URL para 
+ser cumprimentado pelo Symfony2 (troque Fabien pelo seu nome):
 
     http://localhost/sandbox/web/app_dev.php/hello/Fabien
 
-What's going on here? Let's dissect the URL:
+O que está acontecendo aqui? Vamos entender a URL:
 
 .. index:: Front Controller
 
@@ -81,38 +78,35 @@ What's going on here? Let's dissect the URL:
 * ``/hello/Fabien``: This is the "virtual" path to the resource the user wants
   to access.
 
-Your responsibility as a developer is to write the code that maps the user
-request (``/hello/Fabien``) to the resource associated with it (``Hello
-Fabien!``).
+Sua responsabilidade como desenvolvedor é escrever um código que mapeie a requisição 
+do usuário (``/hello/Fabien``) para o recurso associado (``Hello Fabien!``). 
 
 .. index::
-   single: Configuration
+   single: Configuração
 
-Configuration
-~~~~~~~~~~~~~
+Configuração
+~~~~~~~~~~~~
 
-But how does Symfony2 route the request to your code? Simply by reading some
-configuration file.
+Como o sistema de rotas do Symfony2 processa seu código? Lendo alguns arquivos de configuração.
 
-All Symfony2 configuration files can be written in either PHP, XML, or `YAML`_
-(YAML is a simple format that makes the description of configuration settings
-very easy).
+Todos os arquivos de configuração do Symfony2 podem ser escritos em PHP, XML, ou 
+`YAML`_ (YAML é um simples formato que torna a descrição das configurações muito simples).
 
 .. tip::
-
-    The sandbox defaults to YAML, but you can easily switch to XML or PHP by
-    editing the ``app/AppKernel.php`` file. You can switch now by looking at
-    the bottom of this file for instructions (the tutorials show the
-    configuration for all supported formats).
-
+    
+    O sandbox utiliza o YAML por padrão, mas você pode trocar para XML ou PHP 
+    editando o arquivo ``app/AppKernel.php``. Você pode ir para o final dessa 
+    página para ler as instruções (os tutoriais mostram as configurções 
+    para todos os tipos de formatos suportados).
+    
 .. index::
-   single: Routing
-   pair: Configuration; Routing
+   single: Roteamento
+   pair: Configuração; Rotas
 
-Routing
-~~~~~~~
+Roteamento
+~~~~~~~~~~
 
-So, Symfony2 routes the request by reading the routing configuration file:
+O sistema de roteamento do Symfony2 processa a requisição lendo o arquivo de configuração:
 
 .. configuration-block::
 
@@ -156,9 +150,9 @@ So, Symfony2 routes the request by reading the routing configuration file:
 
         return $collection;
 
-The first few lines of the routing configuration file define which code to
-call when the user requests the "``/``" resource. More interesting is the last
-part, which imports another routing configuration file that reads as follows:
+As primeiras linhas do arquivo de configuração definem qual código será chamado 
+quando um usuário requisitar o "``/``" resource. A parte mais interessante é a última, 
+que importa outro arquivo de configuração::
 
 .. configuration-block::
 
@@ -196,19 +190,17 @@ part, which imports another routing configuration file that reads as follows:
 
         return $collection;
 
-Here we go! As you can see, the "``/hello/:name``" resource pattern (a string
-beginning with a colon like ``:name`` is a placeholder) is mapped to a
-controller, referenced by the ``_controller`` value.
+La vamos nós! Como você pode ver, o padrão "``/hello/:name``" (uma string começando 
+com ``:name`` é um espaço reservado) é mapeado a um controlador, referenciado pelo valor ``_controller``. 
 
 .. index::
-   single: Controller
-   single: MVC; Controller
+   single: Controlador
+   single: MVC; Controlador
 
-Controllers
-~~~~~~~~~~~
+Controladores
+~~~~~~~~~~~~~
 
-The controller is responsible for returning a representation of the resource
-(most of the time an HTML one) and it is defined as a PHP class:
+O controlador é responsável por retornar a representação do resource (na maioria dos casos um HTML) e é definido como uma classe PHP:
 
 .. code-block:: php
    :linenos:
@@ -230,39 +222,30 @@ The controller is responsible for returning a representation of the resource
         }
     }
 
-The code is pretty straightforward but let's explain this code line by line:
+O código é bem simples, mas vamos explicar linha por linha:
 
-* *line 3*: Symfony2 takes advantage of new PHP 5.3 features and as such, all
-  controllers are properly namespaced (the namespace is the first part of the
-  ``_controller`` routing value: ``HelloBundle``).
+* *linha 3*: Symfony2 faz a utilização de uns novos recursos do PHP 5.3. Todos os controladores possuem os nomes propriamente reservados 
+(esse espaço reservado é a primeira parte do valor da rota do ``_controller``: ``HelloBundle``).
 
-* *line 7*: The controller name is the concatenation of the second part of the
-  ``_controller`` routing value (``Hello``) and ``Controller``. It extends the
-  built-in ``Controller`` class, which provides useful shortcuts (as we will
-  see later in this tutorial).
+* *linha 7*: O nome do controlador é formado a partir da 
+concatenação da segunda parte do valor da rota do ``_controller``, (``Hello``), e ``Controller``. Isso extende a classe ``Controller``, 
+que nos proporciona alguns atalhos (vamos ver isso ainda nesse tutorial).
+  
+* *linha 9*: Cada controlador é feito de algumas ações. Conforme as configurações, a página de hello é tratada pela ação ``index`` 
+(a terceira parte dos valores de rota do ``controller``). Esse método recebe os valores e argumentos (``$name`` no caso) do resource.
 
-* *line 9*: Each controller is made of several actions. As per the
-  configuration, the hello page is handled by the ``index`` action (the third
-  part of the ``_controller`` routing value). This method receives the
-  resource placeholder values as arguments (``$name`` in our case).
+* *linha 11*: O método ``render()`` carrega e renderiza o template (``HelloBundle:Hello:index``) com as variáveis 
+sendo passadas no segundo argumento. 
 
-* *line 11*: The ``render()`` method loads and renders a template
-  (``HelloBundle:Hello:index``) with the variables passed as a second
-  argument.
-
-But what is a :term:`bundle`? All the code you write in a Symfony2 project is
-organized in bundles. In Symfony2 speak, a bundle is a structured set of files
-(PHP files, stylesheets, JavaScripts, images, ...) that implements a single
-feature (a blog, a forum, ...) and which can be easily shared with other
-developers. In our example, we only have one bundle, ``HelloBundle``.
+O que é um :term:`bundle`? Todo código que você escreve no Symfony2 é organizado em bundles. Para o Symfony2, um bundle é um 
+conjunto de arquivos (arquivos PHP, stylesheets, Javascripts, imagens, ...) que implementam um único requisito (um blog, forum, ...) 
+e isso pode ser compartilhado facilmente com outros desenvolvedores. No nosso exemplo possuimos apenas um bundle, o ``HelloBundle``.
 
 Templates
 ~~~~~~~~~
 
-So, the controller renders the ``HelloBundle:Hello:index.php`` template. But
-what's in a template name? ``HelloBundle`` is the bundle name, ``Hello`` is
-the controller, and ``index.php`` the template file name. The template itself
-is made of HTML and simple PHP expressions:
+Os controladores renderizam o template ``HelloBundle:Hello:index.php``. Vamos entender como isso se comporta. ``HelloBundle`` é o nome do bundle, 
+``Hello`` é o controlador e ``index.php`` é o arquivo do template. O template em si é feito de HTML e algumas expressões simples em PHP:
 
 .. code-block:: html+php
 
@@ -271,52 +254,43 @@ is made of HTML and simple PHP expressions:
 
     Hello <?php echo $name ?>!
 
-Congratulations! You have looked at your first Symfony2 piece of code. That was
-not so hard, was it? Symfony2 makes it really easy to implement web sites
-better and faster.
+Parabéns! Você acaba de ver seu primeiro pedaço de código Symfony2. Não foi tão difícil, concorda? Com Symfony2 fica muito mais fácil 
+e rápido de implementar websites.  
 
 .. index::
-   single: Environment
-   single: Configuration; Environment
+   single: Ambiente
+   single: Configuração de; Ambiente
 
-Working with Environments
+Trabalhando com ambientes
 -------------------------
 
-Now that you have a better understanding on how Symfony2 works, have a closer
-look at the bottom of the page; you will notice a small bar with the Symfony2
-and PHP logos. It is called the "Web Debug Toolbar" and it is the developer's
-best friend. Of course, such a tool must not be displayed when you deploy your
-application to your production servers. That's why you will find another front
-controller in the ``web/`` directory (``app.php``), optimized for the
-production environment:
+Agora que você já entende um pouco como o Symfony2 funciona, vamos dar uma olhada mais detalhada no final da página; 
+você vai ver uma pequena barra com os logotipos do Symfony2 e PHP. Essa barra é chamada de "Web Bebug Toolbar" e é o melhor 
+amigo do desenvolvedor. É claro que essa barra não será mostrada quando você publicar sua aplicação no servidor de produção. 
+É por isso que você encontrará mais controladores (``app.php``) no diretório ``web/``, prontos e otimizados para seu ambiente 
+de produção. 
 
     http://localhost/sandbox/web/app.php/hello/Fabien
 
-And if you use Apache with ``mod_rewrite`` enabled, you can even omit the
-``app.php`` part of the URL:
+Se você configurou seu Apache com o ``mod_rewrite`` habilitado, é possível omitir o ``app.php`` da URL:
 
     http://localhost/sandbox/web/hello/Fabien
 
-Last but not least, on the production servers, you should point your web root
-directory to the ``web/`` directory to secure your installation and have an even
-better looking URL:
+Nos servidores de produção você deve apontar seu diretório web para o diretório ``web/`` para garantir a segurança de sua 
+instalação e obter uma URL mais bonita:
 
     http://localhost/hello/Fabien
 
-To make the production environment as fast as possible, Symfony2 maintains a
-cache under the ``app/cache/`` directory. When you make changes to the code or
-configuration, you need to manually remove the cached files. That's why you
-should always use the development front controller (``app_dev.php``) when
-working on a project.
+Para fazer nosso servidor de produção ainda mais rápido, o Symfony2 utiliza o diretório ``app/cache/`` para manter diversos arquivos 
+de cache. Quando você faz alterações no seu código ou configuração, é necessário remover os arquivos desta pasta manualmente. É 
+por isso que você deve sempre utilizar o controlador de desenvolvimento (``app_dev.php``) quando não estiver no ambiente de produção. 
 
-Final Thoughts
---------------
+Últimas considerações
+---------------------
 
-The 10 minutes are over. By now, you should be able to create your own simple
-routes, controllers, and templates. As an exercise, try to build something
-more useful than the Hello application! But if you are eager to learn more
-about Symfony2, you can read the next part of this tutorial right away, where
-we dive more into the templating system.
+Os 10 minutos acabaram. Por agora, você já pode criar suas rotas, controladores e templates. Como exercício, tente fazer alguma 
+coisa mais útil do que uma aplicação do tipo "Olá mundo"! Mas, se você estiver ansioso para aprender mais sobre o Symfony2, vá para a próxima 
+parte desse tutorial onde nós vamos mais afundo do sistema de templates.
 
 .. _sandbox: http://symfony-reloaded.org/code#sandbox
 .. _YAML:    http://www.yaml.org/
